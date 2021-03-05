@@ -1,0 +1,18 @@
+{
+  "name": "map",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "mustache": "^4.1.0",
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "dev": "nodemon -w app.js",
+    "dev:inspect": "nodemon -w app.js --inspect-brk"
+  }
+}

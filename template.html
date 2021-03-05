@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта 'у містах...' України</title>
+  <style>
+    #container {
+        height: 98vh;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .loading {
+        margin-top: 10em;
+        text-align: center;
+        color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/mapdata/countries/ua/ua-all.js"></script>
+  <script>
+    var cases = {{{cases}}}
+    // Create the chart
+    Highcharts.mapChart('container', {
+        chart: {
+            map: 'countries/ua/ua-all'
+        },
+
+        title: {
+            text: 'Карта рандомних пошуків по регіонах України',
+            y: 30
+        },
+        subtitle: {
+            text: 'Що пропонує гугл, якщо ввести "у -назві-міста-"',
+            y: 60
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+
+        series: [{
+            data: cases,
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.case}'
+            }
+        }]
+    });
+  </script>
+</body>
+</html>
